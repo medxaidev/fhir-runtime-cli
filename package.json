@@ -1,0 +1,90 @@
+{
+  "name": "fhir-runtime-cli",
+  "version": "0.0.1",
+  "description": "FHIR Runtime CLI for TypeScript/Node.js with zero dependencies. Includes parser, validator, snapshot generator, and FHIRPath engine.",
+  "homepage": "https://github.com/medxaidev/fhir-runtime-cli#readme",
+  "license": "MIT",
+  "author": "Fangjun <fangjun20208@gmail.com>",
+  "keywords": [
+    "fhir",
+    "fhir-r4",
+    "fhir-server",
+    "fhir-runtime",
+    "fhirpath",
+    "healthcare",
+    "hl7",
+    "medical",
+    "interoperability",
+    "validator",
+    "validation",
+    "parser",
+    "snapshot",
+    "profile",
+    "structuredefinition",
+    "typescript",
+    "ehr",
+    "emr",
+    "clinical",
+    "us-core",
+    "implementation-guide",
+    "cli"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/medxaidev/fhir-runtime-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/medxaidev/fhir-runtime-cli/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc && node ./scripts/esbuild.mjs",
+    "test": "vitest run",
+    "prepublishOnly": "npm run test && npm run build"
+  },
+  "dependencies": {
+    "fhir-runtime": "0.7.2"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "25.2.0",
+    "rimraf": "6.1.2",
+    "esbuild": "0.27.2",
+    "@microsoft/api-extractor": "7.56.1",
+    "vitest": "4.0.18",
+    "tsx": "4.21.0"
+  },
+  "peerDependencies": {},
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
