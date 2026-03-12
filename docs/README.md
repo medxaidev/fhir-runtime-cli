@@ -25,27 +25,32 @@ Welcome to the fhir-runtime-cli documentation!
 ## Command Categories
 
 ### Core Commands
+
 - `validate` - Validate FHIR resources
 - `fhirpath` - Query with FHIRPath
 - `inspect` - Inspect resource structure
 
 ### Bundle Operations
+
 - `bundle analyze` - Analyze Bundle contents
 - `bundle extract` - Extract resources
 - `bundle refs` - Analyze references
 
 ### Conversion & Profiles
+
 - `convert` - Convert between JSON/YAML
 - `profile show` - View profiles
 - `profile snapshot` - Generate snapshots
 - `profile validate` - Validate profiles
 
 ### Package Management
+
 - `package load` - Load IG packages
 - `package list` - List packages
 - `package resolve` - Resolve URLs
 
 ### Advanced Features
+
 - `compose` - Generate resources from templates
 - `search extract` - Extract search values
 - `search validate` - Validate SearchParameters
@@ -58,6 +63,6 @@ Welcome to the fhir-runtime-cli documentation!
 
 ## Version
 
-Current version: **0.1.0**
+Current version: **0.2.0**
 
 See [CHANGELOG.md](../CHANGELOG.md) for version history.

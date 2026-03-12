@@ -1,7 +1,6 @@
 import { Command } from 'commander';
-import { StructureValidator } from 'fhir-runtime';
 import { readFhirResource } from '../utils/loader.js';
-import { getCanonicalProfileForType } from '../utils/context.js';
+import { getRuntime } from '../utils/context.js';
 import {
   printSuccess,
   printError,
@@ -26,9 +25,9 @@ export async function runValidate(
   const resource = readFhirResource(filePath);
   const resourceType = resource.resourceType;
 
-  const profile = await getCanonicalProfileForType(resourceType);
-  const validator = new StructureValidator({ skipInvariants: false });
-  const result = validator.validate(resource, profile);
+  const runtime = await getRuntime();
+  const profileUrl = `http://hl7.org/fhir/StructureDefinition/${resourceType}`;
+  const result = await runtime.validate(resource as never, profileUrl);
 
   const issues = result.issues ?? [];
   const errors = issues.filter((i: { severity: string }) => i.severity === 'error');

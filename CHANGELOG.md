@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.0] - 2026-03-12
+
+### Changed
+
+- Upgraded `fhir-runtime` from v0.7.2 to v0.8.0
+- Added `fhir-definition@0.4.0` as dependency
+- Refactored `validate` command to use `runtime.validate()` via `createRuntime()` API
+- Added `getRuntime()` to context utility — returns unified `FhirRuntimeInstance`
+- Simplified validation pipeline: no longer manually creates `StructureValidator` + `CanonicalProfile`
+
+### Infrastructure
+
+- Full backward compatibility — all existing commands work without changes
+- All 123 tests passing
+
+---
+
 ## [0.1.0] - 2026-03-12
 
 ### Added

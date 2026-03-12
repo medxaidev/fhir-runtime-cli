@@ -5,8 +5,9 @@ import {
   MemoryLoader,
   SnapshotGenerator,
   buildCanonicalProfile,
+  createRuntime,
 } from 'fhir-runtime';
-import type { CanonicalProfile } from 'fhir-runtime';
+import type { CanonicalProfile, FhirRuntimeInstance } from 'fhir-runtime';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -23,6 +24,7 @@ function getCoreDefsDir(): string {
 
 let _ctx: FhirContextImpl | null = null;
 let _preloaded = false;
+let _runtime: FhirRuntimeInstance | null = null;
 
 /**
  * Get or create the shared FhirContext instance.
@@ -47,6 +49,18 @@ export async function ensureCoreDefinitions(): Promise<FhirContextImpl> {
     _preloaded = true;
   }
   return ctx;
+}
+
+/**
+ * Get or create the shared FhirRuntimeInstance (v0.8.0+).
+ * Uses createRuntime() with the pre-configured FhirContext.
+ */
+export async function getRuntime(): Promise<FhirRuntimeInstance> {
+  if (!_runtime) {
+    const ctx = await ensureCoreDefinitions();
+    _runtime = await createRuntime({ context: ctx, preloadCore: false });
+  }
+  return _runtime;
 }
 
 /**
@@ -90,4 +104,5 @@ export async function getCanonicalProfileForType(
 export function resetContext(): void {
   _ctx = null;
   _preloaded = false;
+  _runtime = null;
 }

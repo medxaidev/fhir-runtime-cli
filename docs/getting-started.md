@@ -12,7 +12,7 @@ After installation, the `fhir` command will be available globally:
 
 ```bash
 fhir --version
-# Output: 0.1.0
+# Output: 0.2.0
 ```
 
 ### Using npx
@@ -52,6 +52,7 @@ fhir validate patient.json
 ```
 
 Expected output:
+
 ```
 ✔ Validation Passed
 
@@ -68,6 +69,7 @@ fhir fhirpath "Patient.name.family" patient.json
 ```
 
 Output:
+
 ```
 ["Smith"]
 ```
@@ -79,6 +81,7 @@ fhir fhirpath "Patient.gender = 'male'" patient.json --boolean
 ```
 
 Output:
+
 ```
 true
 ```

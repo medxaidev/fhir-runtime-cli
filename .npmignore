@@ -2,6 +2,7 @@
 src/
 tests/
 devdocs/
+docs/
 fixtures/
 scripts/
 *.test.ts
@@ -11,6 +12,7 @@ vitest.setup.ts
 tsconfig.json
 .github/
 .vscode/
+RELEASE_CHECKLIST.md
 
 # Build artifacts
 *.tsbuildinfo

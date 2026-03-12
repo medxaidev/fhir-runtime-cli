@@ -6,7 +6,7 @@
 
 A powerful command-line tool for working with FHIR R4 resources. Validate, inspect, query, convert, and analyze FHIR data without writing code.
 
-Built on [fhir-runtime](https://github.com/nicholasgasior/fhir-runtime) v0.7.2.
+Built on [fhir-runtime](https://github.com/nicholasgasior/fhir-runtime) v0.8.0 + [fhir-definition](https://github.com/medxaidev/fhir-definition) v0.4.0.
 
 ## Features
 
@@ -324,7 +324,8 @@ All commands that accept files support both JSON and YAML input.
 ## Requirements
 
 - Node.js >= 18
-- fhir-runtime >= 0.7.2
+- fhir-runtime >= 0.8.0
+- fhir-definition >= 0.4.0
 
 ## Contributing
 
