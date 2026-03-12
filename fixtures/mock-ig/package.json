@@ -1,0 +1,7 @@
+{
+  "name": "mock.fhir.test.ig",
+  "version": "1.0.0",
+  "fhirVersions": ["4.0.1"],
+  "type": "fhir.ig",
+  "description": "Mock IG package for testing"
+}

@@ -1,0 +1,26 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "mock-observation",
+  "url": "http://mock.test.ig/fhir/StructureDefinition/MockObservation",
+  "name": "MockObservation",
+  "title": "Mock Observation Profile",
+  "status": "active",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "mustSupport": true
+      }
+    ]
+  }
+}

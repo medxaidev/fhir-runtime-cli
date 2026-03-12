@@ -1,8 +1,8 @@
 {
   "name": "fhir-runtime-cli",
-  "version": "0.0.1",
-  "description": "FHIR Runtime CLI for TypeScript/Node.js with zero dependencies. Includes parser, validator, snapshot generator, and FHIRPath engine.",
-  "homepage": "https://github.com/medxaidev/fhir-runtime-cli#readme",
+  "version": "0.1.0",
+  "description": "Command-line tool for FHIR R4 resources - validate, query, inspect, convert, and analyze FHIR data",
+  "homepage": "https://github.com/YOUR_USERNAME/fhir-runtime-cli#readme",
   "license": "MIT",
   "author": "Fangjun <fangjun20208@gmail.com>",
   "keywords": [
@@ -31,14 +31,17 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/medxaidev/fhir-runtime-cli.git"
+    "url": "git+https://github.com/YOUR_USERNAME/fhir-runtime-cli.git"
   },
   "bugs": {
-    "url": "https://github.com/medxaidev/fhir-runtime-cli/issues"
+    "url": "https://github.com/YOUR_USERNAME/fhir-runtime-cli/issues"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+  },
+  "bin": {
+    "fhir": "./bin/fhir.js"
   },
   "sideEffects": false,
   "type": "module",
@@ -60,6 +63,7 @@
   },
   "files": [
     "dist",
+    "bin",
     "README.md",
     "LICENSE",
     "CHANGELOG.md"
@@ -68,21 +72,26 @@
     "clean": "rimraf dist",
     "build": "npm run clean && tsc && node ./scripts/esbuild.mjs",
     "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "prepublishOnly": "npm run test && npm run build"
   },
   "dependencies": {
-    "fhir-runtime": "0.7.2"
+    "chalk": "^5.6.2",
+    "commander": "^14.0.3",
+    "fhir-runtime": "0.7.2",
+    "js-yaml": "^4.1.1",
+    "ora": "^9.3.0"
   },
   "devDependencies": {
-    "typescript": "5.9.3",
-    "@types/node": "25.2.0",
-    "rimraf": "6.1.2",
-    "esbuild": "0.27.2",
     "@microsoft/api-extractor": "7.56.1",
-    "vitest": "4.0.18",
-    "tsx": "4.21.0"
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "25.2.0",
+    "esbuild": "0.27.2",
+    "rimraf": "6.1.2",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3",
+    "vitest": "4.0.18"
   },
-  "peerDependencies": {},
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=9.0.0"

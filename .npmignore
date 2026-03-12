@@ -1,0 +1,21 @@
+# Development files
+src/
+tests/
+devdocs/
+fixtures/
+scripts/
+*.test.ts
+*.spec.ts
+vitest.config.ts
+vitest.setup.ts
+tsconfig.json
+.github/
+.vscode/
+
+# Build artifacts
+*.tsbuildinfo
+.vitest/
+
+# Temporary files
+.tmp-*
+*.log

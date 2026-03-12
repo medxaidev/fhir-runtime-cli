@@ -1,0 +1,39 @@
+{
+  "resourceType": "Practitioner",
+  "id": "pract-1",
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "9999999999"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Williams",
+      "given": ["Sarah"],
+      "prefix": ["Dr."]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "555-5678"
+    }
+  ],
+  "gender": "female",
+  "qualification": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+            "code": "MD"
+          }
+        ],
+        "text": "Doctor of Medicine"
+      }
+    }
+  ]
+}

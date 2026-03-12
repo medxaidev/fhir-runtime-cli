@@ -1,0 +1,9 @@
+resourceType: Patient
+id: patient-yaml
+name:
+  - use: official
+    family: Thompson
+    given:
+      - David
+gender: male
+birthDate: "1995-12-01"

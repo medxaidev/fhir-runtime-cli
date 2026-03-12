@@ -1,0 +1,79 @@
+{
+  "resourceType": "Patient",
+  "id": "patient-nested",
+  "name": [
+    {
+      "use": "official",
+      "family": "Garcia",
+      "given": ["Maria", "Elena"]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1978-08-12",
+  "address": [
+    {
+      "use": "home",
+      "line": ["100 Oak Avenue", "Apt 5B"],
+      "city": "Austin",
+      "state": "TX",
+      "postalCode": "73301"
+    },
+    {
+      "use": "work",
+      "line": ["200 Business Blvd"],
+      "city": "Austin",
+      "state": "TX",
+      "postalCode": "73302"
+    }
+  ],
+  "contact": [
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+              "code": "N",
+              "display": "Next-of-Kin"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "family": "Garcia",
+        "given": ["Carlos"]
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "555-9876"
+        }
+      ]
+    }
+  ],
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "es",
+            "display": "Spanish"
+          }
+        ]
+      },
+      "preferred": true
+    },
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English"
+          }
+        ]
+      }
+    }
+  ]
+}

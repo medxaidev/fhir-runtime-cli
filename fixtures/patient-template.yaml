@@ -1,0 +1,16 @@
+resourceType: Patient
+id: patient-composed
+name:
+  - use: official
+    family: Smith
+    given:
+      - John
+gender: male
+birthDate: "1990-01-01"
+address:
+  - use: home
+    line:
+      - "123 Main St"
+    city: Springfield
+    state: IL
+    postalCode: "62701"

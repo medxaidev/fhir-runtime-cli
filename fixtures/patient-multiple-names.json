@@ -1,0 +1,17 @@
+{
+  "resourceType": "Patient",
+  "id": "patient-multi-name",
+  "name": [
+    {
+      "use": "official",
+      "family": "Johnson",
+      "given": ["Alice", "Marie"]
+    },
+    {
+      "use": "nickname",
+      "given": ["Ali"]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1985-03-22"
+}
