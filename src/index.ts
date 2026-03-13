@@ -16,9 +16,9 @@ export function createProgram(): Command {
   const program = new Command();
 
   program
-    .name('fhir')
+    .name('fhir-runtime')
     .description('FHIR Runtime CLI — parse, validate, inspect FHIR R4 resources')
-    .version('0.2.1');
+    .version('0.2.2');
 
   registerValidateCommand(program);
   registerFhirPathCommand(program);

@@ -63,6 +63,6 @@ Welcome to the fhir-runtime-cli documentation!
 
 ## Version
 
-Current version: **0.2.0**
+Current version: **0.2.2**
 
 See [CHANGELOG.md](../CHANGELOG.md) for version history.

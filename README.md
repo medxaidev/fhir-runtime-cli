@@ -30,41 +30,41 @@ npm install -g fhir-runtime-cli
 npx fhir-runtime-cli --help
 
 # Verify installation
-fhir --version
+fhir-runtime --version
 ```
 
 ## Quick Start
 
 ```bash
 # Validate a FHIR resource
-fhir validate patient.json
+fhir-runtime validate patient.json
 
 # Query with FHIRPath
-fhir fhirpath "Patient.name.given" patient.json
+fhir-runtime fhirpath "Patient.name.given" patient.json
 
 # Inspect resource structure
-fhir inspect patient.json --tree
+fhir-runtime inspect patient.json --tree
 
 # Analyze a Bundle
-fhir bundle analyze bundle.json
+fhir-runtime bundle analyze bundle.json
 
 # Convert JSON to YAML
-fhir convert patient.json patient.yaml
+fhir-runtime convert patient.json patient.yaml
 
 # View a Profile
-fhir profile show http://hl7.org/fhir/StructureDefinition/Patient
+fhir-runtime profile show http://hl7.org/fhir/StructureDefinition/Patient
 ```
 
 ## Commands
 
-### `fhir validate <file>`
+### `fhir-runtime validate <file>`
 
 Validate a FHIR R4 resource against its StructureDefinition.
 
 ```bash
-fhir validate patient.json
-fhir validate patient.json --json
-fhir validate patient.json --strict
+fhir-runtime validate patient.json
+fhir-runtime validate patient.json --json
+fhir-runtime validate patient.json --strict
 ```
 
 | Option     | Description                            |
@@ -72,14 +72,14 @@ fhir validate patient.json --strict
 | `--json`   | Output in JSON format                  |
 | `--strict` | Treat warnings as errors (exit code 1) |
 
-### `fhir fhirpath <expression> <file>`
+### `fhir-runtime fhirpath <expression> <file>`
 
 Evaluate a FHIRPath expression against a FHIR resource.
 
 ```bash
-fhir fhirpath "Patient.name.given" patient.json
-fhir fhirpath "Patient.gender = 'male'" patient.json --boolean
-fhir fhirpath "Patient.name.family" patient.json --json
+fhir-runtime fhirpath "Patient.name.given" patient.json
+fhir-runtime fhirpath "Patient.gender = 'male'" patient.json --boolean
+fhir-runtime fhirpath "Patient.name.family" patient.json --json
 ```
 
 | Option      | Description                    |
@@ -87,14 +87,14 @@ fhir fhirpath "Patient.name.family" patient.json --json
 | `--boolean` | Evaluate as boolean expression |
 | `--json`    | Output in JSON format          |
 
-### `fhir inspect <file>`
+### `fhir-runtime inspect <file>`
 
 Display the structure and fields of a FHIR resource.
 
 ```bash
-fhir inspect patient.json
-fhir inspect patient.json --tree
-fhir inspect patient.json --json
+fhir-runtime inspect patient.json
+fhir-runtime inspect patient.json --tree
+fhir-runtime inspect patient.json --json
 ```
 
 | Option   | Description               |
@@ -102,16 +102,16 @@ fhir inspect patient.json --json
 | `--tree` | Display as tree structure |
 | `--json` | Output in JSON format     |
 
-### `fhir bundle <subcommand>`
+### `fhir-runtime bundle <subcommand>`
 
 Analyze and manipulate FHIR Bundles.
 
-#### `fhir bundle analyze <file>`
+#### `fhir-runtime bundle analyze <file>`
 
 ```bash
-fhir bundle analyze bundle.json
-fhir bundle analyze bundle.json --json
-fhir bundle analyze bundle.json --verbose
+fhir-runtime bundle analyze bundle.json
+fhir-runtime bundle analyze bundle.json --json
+fhir-runtime bundle analyze bundle.json --verbose
 ```
 
 | Option      | Description                           |
@@ -119,12 +119,12 @@ fhir bundle analyze bundle.json --verbose
 | `--json`    | Output in JSON format                 |
 | `--verbose` | Show each entry's id and resourceType |
 
-#### `fhir bundle extract <file>`
+#### `fhir-runtime bundle extract <file>`
 
 ```bash
-fhir bundle extract bundle.json --type Patient
-fhir bundle extract bundle.json --type Patient --output ./out/
-fhir bundle extract bundle.json --json
+fhir-runtime bundle extract bundle.json --type Patient
+fhir-runtime bundle extract bundle.json --type Patient --output ./out/
+fhir-runtime bundle extract bundle.json --json
 ```
 
 | Option                  | Description                            |
@@ -133,12 +133,12 @@ fhir bundle extract bundle.json --json
 | `--output <dir>`        | Write each resource to a separate file |
 | `--json`                | Output as JSON array                   |
 
-#### `fhir bundle refs <file>`
+#### `fhir-runtime bundle refs <file>`
 
 ```bash
-fhir bundle refs bundle.json
-fhir bundle refs bundle.json --json
-fhir bundle refs bundle.json --type literal
+fhir-runtime bundle refs bundle.json
+fhir-runtime bundle refs bundle.json --json
+fhir-runtime bundle refs bundle.json --type literal
 ```
 
 | Option             | Description                                                   |
@@ -146,14 +146,14 @@ fhir bundle refs bundle.json --type literal
 | `--json`           | Output in JSON format                                         |
 | `--type <refType>` | Filter by reference type (literal/absolute/contained/logical) |
 
-### `fhir convert <input> <output>`
+### `fhir-runtime convert <input> <output>`
 
 Convert FHIR resources between JSON and YAML formats.
 
 ```bash
-fhir convert patient.json patient.yaml
-fhir convert patient.yaml patient.json
-fhir convert patient.json patient.out --from json --to yaml
+fhir-runtime convert patient.json patient.yaml
+fhir-runtime convert patient.yaml patient.json
+fhir-runtime convert patient.json patient.out --from json --to yaml
 ```
 
 | Option            | Description                              |
@@ -161,17 +161,17 @@ fhir convert patient.json patient.out --from json --to yaml
 | `--from <format>` | Source format (json/yaml, auto-detected) |
 | `--to <format>`   | Target format (json/yaml)                |
 
-### `fhir profile <subcommand>`
+### `fhir-runtime profile <subcommand>`
 
 View and manipulate FHIR StructureDefinition profiles.
 
-#### `fhir profile show <url-or-file>`
+#### `fhir-runtime profile show <url-or-file>`
 
 ```bash
-fhir profile show http://hl7.org/fhir/StructureDefinition/Patient
-fhir profile show my-profile.json
-fhir profile show my-profile.json --full
-fhir profile show my-profile.json --json
+fhir-runtime profile show http://hl7.org/fhir/StructureDefinition/Patient
+fhir-runtime profile show my-profile.json
+fhir-runtime profile show my-profile.json --full
+fhir-runtime profile show my-profile.json --json
 ```
 
 | Option   | Description           |
@@ -179,11 +179,11 @@ fhir profile show my-profile.json --json
 | `--full` | Show full metadata    |
 | `--json` | Output in JSON format |
 
-#### `fhir profile snapshot <file>`
+#### `fhir-runtime profile snapshot <file>`
 
 ```bash
-fhir profile snapshot my-profile.json
-fhir profile snapshot my-profile.json --output snapshot.json
+fhir-runtime profile snapshot my-profile.json
+fhir-runtime profile snapshot my-profile.json --output snapshot.json
 ```
 
 | Option            | Description                                 |
@@ -191,38 +191,38 @@ fhir profile snapshot my-profile.json --output snapshot.json
 | `--output <file>` | Write output to file                        |
 | `--canonical`     | Also output CanonicalProfile representation |
 
-#### `fhir profile validate <file>`
+#### `fhir-runtime profile validate <file>`
 
 ```bash
-fhir profile validate my-profile.json
-fhir profile validate my-profile.json --json
+fhir-runtime profile validate my-profile.json
+fhir-runtime profile validate my-profile.json --json
 ```
 
 | Option   | Description           |
 | -------- | --------------------- |
 | `--json` | Output in JSON format |
 
-### `fhir package <subcommand>`
+### `fhir-runtime package <subcommand>`
 
 Manage FHIR IG packages.
 
-#### `fhir package load <path>`
+#### `fhir-runtime package load <path>`
 
 ```bash
-fhir package load ./hl7.fhir.us.core/
-fhir package load ./hl7.fhir.us.core-9.0.0.tgz
+fhir-runtime package load ./hl7.fhir.us.core/
+fhir-runtime package load ./hl7.fhir.us.core-9.0.0.tgz
 ```
 
 | Option   | Description           |
 | -------- | --------------------- |
 | `--json` | Output in JSON format |
 
-#### `fhir package list`
+#### `fhir-runtime package list`
 
 ```bash
-fhir package list
-fhir package list --verbose
-fhir package list --json
+fhir-runtime package list
+fhir-runtime package list --verbose
+fhir-runtime package list --json
 ```
 
 | Option      | Description                        |
@@ -230,12 +230,12 @@ fhir package list --json
 | `--json`    | Output in JSON format              |
 | `--verbose` | Show profile URLs for each package |
 
-#### `fhir package resolve <url>`
+#### `fhir-runtime package resolve <url>`
 
 ```bash
-fhir package resolve http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
-fhir package resolve <url> --show
-fhir package resolve <url> --json
+fhir-runtime package resolve http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+fhir-runtime package resolve <url> --show
+fhir-runtime package resolve <url> --json
 ```
 
 | Option   | Description                               |
@@ -243,14 +243,14 @@ fhir package resolve <url> --json
 | `--json` | Output in JSON format                     |
 | `--show` | Show the full StructureDefinition content |
 
-### `fhir compose <template>`
+### `fhir-runtime compose <template>`
 
 Compose a normalized FHIR R4 JSON resource from a YAML or JSON template.
 
 ```bash
-fhir compose patient-template.yaml
-fhir compose patient-template.yaml --validate
-fhir compose patient-template.yaml --output patient.json
+fhir-runtime compose patient-template.yaml
+fhir-runtime compose patient-template.yaml --validate
+fhir-runtime compose patient-template.yaml --output patient.json
 ```
 
 | Option            | Description                    |
@@ -258,15 +258,15 @@ fhir compose patient-template.yaml --output patient.json
 | `--validate`      | Validate the composed resource |
 | `--output <file>` | Write output to file           |
 
-### `fhir search <subcommand>`
+### `fhir-runtime search <subcommand>`
 
 FHIR SearchParameter tools.
 
-#### `fhir search extract <resource-file> <search-params-file>`
+#### `fhir-runtime search extract <resource-file> <search-params-file>`
 
 ```bash
-fhir search extract patient.json search-param-name.json
-fhir search extract patient.json search-param-name.json --json
+fhir-runtime search extract patient.json search-param-name.json
+fhir-runtime search extract patient.json search-param-name.json --json
 ```
 
 | Option           | Description                          |
@@ -274,22 +274,22 @@ fhir search extract patient.json search-param-name.json --json
 | `--param <code>` | Only extract the specified parameter |
 | `--json`         | Output in JSON format                |
 
-#### `fhir search validate <file>`
+#### `fhir-runtime search validate <file>`
 
 ```bash
-fhir search validate search-param-name.json
-fhir search validate search-param-name.json --json
+fhir-runtime search validate search-param-name.json
+fhir-runtime search validate search-param-name.json --json
 ```
 
 | Option   | Description           |
 | -------- | --------------------- |
 | `--json` | Output in JSON format |
 
-#### `fhir search capability <profile-files...>`
+#### `fhir-runtime search capability <profile-files...>`
 
 ```bash
-fhir search capability my-patient-profile.json
-fhir search capability profile1.json profile2.json --search-params sp-bundle.json
+fhir-runtime search capability my-patient-profile.json
+fhir-runtime search capability profile1.json profile2.json --search-params sp-bundle.json
 ```
 
 | Option                   | Description                                   |

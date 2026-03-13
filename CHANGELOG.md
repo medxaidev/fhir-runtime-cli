@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.2] - 2026-03-13
+
+### Changed
+
+- **Breaking**: Renamed CLI command from `fhir` to `fhir-runtime` to avoid conflicts with upcoming `fhir-cli`
+- Updated all documentation to reflect new command name
+
+### Migration Guide
+
+```bash
+# Before (v0.2.1 and earlier)
+fhir validate patient.json
+
+# After (v0.2.2+)
+fhir-runtime validate patient.json
+```
+
+---
+
 ## [0.2.1] - 2026-03-13
 
 ### Fixed

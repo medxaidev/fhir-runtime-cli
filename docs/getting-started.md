@@ -8,11 +8,11 @@
 npm install -g fhir-runtime-cli
 ```
 
-After installation, the `fhir` command will be available globally:
+After installation, the `fhir-runtime` command will be available globally:
 
 ```bash
-fhir --version
-# Output: 0.2.0
+fhir-runtime --version
+# Output: 0.2.2
 ```
 
 ### Using npx
@@ -48,7 +48,7 @@ Create a simple Patient resource file `patient.json`:
 Validate it:
 
 ```bash
-fhir validate patient.json
+fhir-runtime validate patient.json
 ```
 
 Expected output:
@@ -65,7 +65,7 @@ Expected output:
 Extract the patient's family name:
 
 ```bash
-fhir fhirpath "Patient.name.family" patient.json
+fhir-runtime fhirpath "Patient.name.family" patient.json
 ```
 
 Output:
@@ -77,7 +77,7 @@ Output:
 Check if the patient is male:
 
 ```bash
-fhir fhirpath "Patient.gender = 'male'" patient.json --boolean
+fhir-runtime fhirpath "Patient.gender = 'male'" patient.json --boolean
 ```
 
 Output:
@@ -91,13 +91,13 @@ true
 View the resource structure:
 
 ```bash
-fhir inspect patient.json
+fhir-runtime inspect patient.json
 ```
 
 View as a tree:
 
 ```bash
-fhir inspect patient.json --tree
+fhir-runtime inspect patient.json --tree
 ```
 
 ### 4. Convert Between Formats
@@ -105,13 +105,13 @@ fhir inspect patient.json --tree
 Convert JSON to YAML:
 
 ```bash
-fhir convert patient.json patient.yaml
+fhir-runtime convert patient.json patient.yaml
 ```
 
 Convert back to JSON:
 
 ```bash
-fhir convert patient.yaml patient-copy.json
+fhir-runtime convert patient.yaml patient-copy.json
 ```
 
 ## Next Steps
