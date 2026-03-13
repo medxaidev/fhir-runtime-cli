@@ -9,17 +9,38 @@ import {
 } from 'fhir-runtime';
 import type { CanonicalProfile, FhirRuntimeInstance } from 'fhir-runtime';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// Get __dirname compatible with both ESM and CJS
+function getDirname(): string {
+  // In ESM: use import.meta.url
+  if (typeof import.meta !== 'undefined' && import.meta.url) {
+    return dirname(fileURLToPath(import.meta.url));
+  }
+  // In CJS: __dirname is available as a global
+  // TypeScript will compile this, and at runtime in CJS, __dirname will be defined
+  return typeof __dirname !== 'undefined' ? __dirname : process.cwd();
+}
+
+const currentDir = getDirname();
 
 /**
  * Resolve the path to the bundled core-definitions directory.
- * In source: src/core-definitions/
- * At runtime (built): dist/esm/core-definitions/ (copied by build)
+ * In development: src/core-definitions/ (from src/utils/ go up to src/)
+ * In production (built): dist/esm/core-definitions/ or dist/cjs/core-definitions/
+ * After global install: /path/to/npm/global/node_modules/fhir-runtime-cli/dist/esm/core-definitions/
  */
 function getCoreDefsDir(): string {
-  // Walk up from src/utils/ → src/ → core-definitions/
-  return join(__dirname, '..', 'core-definitions');
+  // In development: currentDir = src/utils/, need to go up to src/
+  // In production: currentDir = dist/esm/ or dist/cjs/, core-definitions is at same level
+  const devPath = join(currentDir, '..', 'core-definitions');
+  const prodPath = join(currentDir, 'core-definitions');
+
+  // Check if we're in development (src/utils/) or production (dist/esm/ or dist/cjs/)
+  // In dev, currentDir ends with 'src/utils' or 'src\\utils'
+  // In prod, currentDir ends with 'dist/esm' or 'dist/cjs' or 'dist\\esm' or 'dist\\cjs'
+  if (currentDir.includes('src')) {
+    return devPath;
+  }
+  return prodPath;
 }
 
 let _ctx: FhirContextImpl | null = null;

@@ -1,5 +1,5 @@
 import { build } from 'esbuild';
-import { writeFileSync, copyFileSync, readFileSync } from 'node:fs';
+import { writeFileSync, copyFileSync, readFileSync, cpSync, existsSync, mkdirSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 
 // 读取 package.json
@@ -33,6 +33,22 @@ const baseOptions = {
   resolveExtensions: ['.ts', '.js'],
   external
 };
+
+// 复制 core-definitions 目录
+function copyCoreDefinitions() {
+  console.log('Copying core-definitions...');
+  const source = './src/core-definitions';
+  const destEsm = './dist/esm/core-definitions';
+  const destCjs = './dist/cjs/core-definitions';
+
+  if (existsSync(source)) {
+    cpSync(source, destEsm, { recursive: true });
+    cpSync(source, destCjs, { recursive: true });
+    console.log('Core definitions copied to dist/esm and dist/cjs');
+  } else {
+    console.warn('Warning: core-definitions directory not found');
+  }
+}
 
 // 顺序构建 ESM
 async function buildESM() {
@@ -97,6 +113,7 @@ async function main() {
   try {
     await buildESM();
     await buildCJS();
+    copyCoreDefinitions();
     console.log('Build all done.');
   } catch (err) {
     console.error(err);

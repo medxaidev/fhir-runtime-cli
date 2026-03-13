@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.1] - 2026-03-13
+
+### Fixed
+
+- **Critical**: Fixed `core-definitions` path resolution for global npm installations
+- Build script now copies `core-definitions/` to `dist/esm/` and `dist/cjs/`
+- `context.ts` now correctly resolves paths in both development and production environments
+- Eliminated "ENOENT: no such file or directory" error when running globally installed CLI
+
+### Infrastructure
+
+- Updated build script to include `copyCoreDefinitions()` function
+- Added ESM/CJS compatible `__dirname` resolution using `getDirname()` helper
+- All 123 tests passing in both development and production builds
+
+---
+
 ## [0.2.0] - 2026-03-12
 
 ### Changed
